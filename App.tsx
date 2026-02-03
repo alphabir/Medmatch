@@ -29,7 +29,8 @@ import {
   Cross
 } from 'lucide-react';
 
-const FloatingIcon = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
+// Explicitly typed FloatingIcon as a React.FC to correctly handle the 'children' prop in JSX.
+const FloatingIcon: React.FC<{ children: React.ReactNode, delay?: number, className?: string }> = ({ children, delay = 0, className = "" }) => (
   <motion.div
     initial={{ y: 0 }}
     animate={{ 

@@ -69,7 +69,19 @@ const URGENCY_THEMES: Record<UrgencyLevel, any> = {
   },
 };
 
-const DoctorCard = ({ 
+// Defined an explicit interface for DoctorCard to ensure compatibility with React.FC and handle 'key' prop.
+interface DoctorCardProps {
+  source: GroundingSource;
+  specialty: string;
+  index: number;
+  currentUser: User | null;
+  onUserUpdate: (user: User) => void;
+  reviews: Review[];
+  onAddReview: (review: Review) => void;
+}
+
+// Converted DoctorCard to a React.FC to properly handle React internal props like 'key'.
+const DoctorCard: React.FC<DoctorCardProps> = ({ 
   source, 
   specialty, 
   index, 
@@ -77,14 +89,6 @@ const DoctorCard = ({
   onUserUpdate,
   reviews,
   onAddReview
-}: { 
-  source: GroundingSource, 
-  specialty: string, 
-  index: number, 
-  currentUser: User | null, 
-  onUserUpdate: (user: User) => void,
-  reviews: Review[],
-  onAddReview: (review: Review) => void
 }) => {
   const [activeTab, setActiveTab] = useState<'info' | 'map' | 'reviews'>('info');
   const [bookingState, setBookingState] = useState<'idle' | 'scheduling' | 'confirming' | 'done'>('idle');
