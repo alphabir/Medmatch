@@ -1,0 +1,7 @@
+{
+  "name": "MedMatch: Symptom-to-Doctor Assistant",
+  "description": "A high-safety medical triage guidance tool that matches user symptoms to appropriate medical specialists using Google Maps grounding.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
